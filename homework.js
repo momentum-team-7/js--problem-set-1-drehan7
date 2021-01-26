@@ -123,38 +123,62 @@ function multigreeting(name, lang) {
 
 function gcd(a, b) {
 
+    // let d = 0;
+    // while (isEven(a) && isEven(b)) {
+    //     a = a/2; b = b/2;
+    //     d = d+1;
+    // }
+    // while (a!=b) {
+    //     if (isEven(a)) {
+    //         a = a/2;
+    //     }else if (isEven(b)) {
+    //         b = b/2;
+    //     }else if (a > b) {
+    //         a = (a-b)/2;
+    //     }else {
+    //         b = (b-a)/2;
+    //     }
+    // }
+
+    // return a * 2**d;
+    
+    
+    
+    
+    
     // Euclid
-    if(b == 0) {
-        return a;
-    } else {
-        return gcd(b, a%b);
-    }
-
-    // // Binary
-
-    // if (a == b) {
+    // if(b == 0) {
     //     return a;
-    // }
-    // if (a == 0) {
-    //     return b;
-    // } else if (b==0) {
-    //     return a;
-    // }
-    // if (isEven(a)) {
-    //     if (isOdd(b)) {
-    //         return gcd(a/2, b);
-    //     } else {
-    //         return 2 * gcd(a/2, b/2);
-    //     }
     // } else {
-    //     if (isEven(b)) {
-    //         return gcd(a, b/2);
-    //     }
-    //     if (a > b) {
-    //         return gcd((a-b)/2, b);
-    //     } else {
-    //         return gcd((b-a)/2, a);
-    //     }
+    //     return gcd(b, a%b);
     // }
+
+
+    // // Binary FASTEST
+
+    if (a == b) {
+        return a;
+    }
+    if (a == 0) {
+        return b;
+    } else if (b==0) {
+        return a;
+    }
+    if (isEven(a)) {
+        if (isOdd(b)) {
+            return gcd(a/2, b);
+        } else {
+            return 2 * gcd(a/2, b/2);
+        }
+    } else {
+        if (isEven(b)) {
+            return gcd(a, b/2);
+        }
+        if (a > b) {
+            return gcd((a-b)/2, b);
+        } else {
+            return gcd((b-a)/2, a);
+        }
+    }
 
 }
